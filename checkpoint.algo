@@ -1,0 +1,32 @@
+ALGORITHM checkpoint
+VAR
+    //sen-rep a sentence(string); nc-number of characters,nw-number of word,number of vowels (integer)
+    sen:= STRING[] ;
+    nc,nw,nv:= INTEGER ;
+BEGIN
+    nc:= 0 ; // 0 because the algorithm start counting characters from the beginning of the sentence
+    nw:= 1 ; // 1 because the algorithm assumes there is atleast one word in the sentence
+    nv:= 0 ; // 0 bacause the algorithm start counting the vowels from scratch
+
+    write("type the sentence")
+    read(sen)
+
+    REPEAT
+
+        IF (sen[nc]=" ") THEN   //to check if the character(nc) in the (sen) array is a space (" ").
+        nw:= nw+1            // if the space (" ") is there, it means a new word has started, so (nw) is increased by 1.
+    END_IF
+
+        IF (sen[nc] in ["a","e","i","o","u"]) THEN //checks if the character (nc), in the sentence (sen) array is one of the vowels (nv)
+        nv:= nv+1  //if the above comment is true,then the vowel(nv) is increased by 1.
+    END_IF
+
+    nc:= nc+1
+
+    UNTIL (sen[nc]=".") //loop to continue until the character (nc) in the sentence (sen) array is a point(".")
+
+    write("the number of characters is", nc+1) //total character count
+    write("the number of words is", nw) //word count
+    write("the number of vowels is", nv) // vowel count
+
+END
